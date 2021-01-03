@@ -2,6 +2,7 @@
 - ML is statically typed
 - First type "sml" -> it will open a SML repl
 - run `use "filename.sml";` the file runs successfully if no error
+- comment (* add comment here *)
 - you could see the declarations
 - the last line will always be `val it = () : unit`, the result of running use. You are free to ignore this.
 - the variables in the file are loaded in the REPL, you could access the variables with the values.
@@ -19,6 +20,7 @@
 - We have datatypes like `andalso` , `orelse`, `not`
 - `andalso` and `orelse` are both keywords while `not` is a function
 - Functions evaluate the arguments before invoking the function. Since that is not the case with `andalso` and `orelse` they are not functions.
+- function binding with keyword `fun`, variable binding with keyword `val`, datatype  binding with keyword `datatype`
 
 ```
 val ans = pow(2,3)
