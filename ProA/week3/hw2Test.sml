@@ -47,6 +47,8 @@ val test83 = all_same_color [(Spades, Num 2), (Clubs, Num 9)] = true
 val test84 = all_same_color [(Clubs, Ace), (Diamonds, Ace),(Spades, Ace)] = false
 val test85 = all_same_color [] = true
 val test86 = all_same_color [(Diamonds,Queen)] = true
+val test87 = all_same_color [(Clubs,Ace),(Spades,Ace),(Diamonds,Ace)] = false
+val test88 = all_same_color [(Diamonds, King), (Hearts, Queen), (Spades, Num 2)] = false
 
 val test9 = sum_cards [(Diamonds, Num 2),(Clubs, Num 6)] = 8
 val test91 = sum_cards [(Clubs, Num 5),(Hearts, King)] = 15
@@ -75,4 +77,10 @@ val test15 = ((officiate ([(Hearts, Num 2),(Clubs, Num 4)],[Draw,Discard (Hearts
                false) 
               handle IllegalMove => true)
 
+
+val test16 = officiate ([(Hearts, Num 2),(Clubs, Num 4)],[], 15) = 7
+
+val test17 = officiate ([(Spades, King),(Hearts, Num 2),(Clubs, Num 4)],[Draw,Discard (Spades, King),Draw], 15) = 6
+
+val test18 = officiate ([(Spades, King)],[Draw,Discard (Spades, King)], 15) = 6
              

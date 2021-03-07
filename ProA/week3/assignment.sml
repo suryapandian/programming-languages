@@ -90,7 +90,7 @@ fun remove_card(cs: card list, a: card, ex: exn)=
 fun all_same_color(cs: card list)=
     case (cs) of
      x::xs::[] => (card_color(x)=card_color(xs))
-    | x::xs::y => if card_color(x)=card_color(xs) then all_same_color(y) else false
+    | x::xs::y => if card_color(x)=card_color(xs) then all_same_color(xs::y) else false
     | _ => true
 
 fun sum_cards(cs: card list)=
@@ -116,13 +116,15 @@ fun score(cs: card list, goal: int)=
     if all_same_color(cs) then (pre_score div 2) else pre_score 
   end
 
+
 fun officiate(cs: card list, mv: move list,goal: int)=
   let
     fun aux(cs: card list, hc: card list,mv: move list, goal: int)=
       if sum_cards(hc) > goal 
       then hc
       else (case (cs, mv,hc) of
-              ([],Draw::ms,hs) => hs
+               (_,[],hs) => hs
+              | ([],Draw::ms,hs) => hs
               |(cs,(Discard x)::ms,hs) => aux(cs,remove_card(hs,x,IllegalMove),ms,goal) 
               |(c::cs,Draw::ms,hs) => aux(cs,c::hs,ms,goal))
     
