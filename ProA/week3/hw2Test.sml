@@ -35,8 +35,8 @@ val test62 = card_value (Hearts, Queen) = 10
 val test63 = card_value (Clubs, Jack) = 10
 
 val test7 = remove_card ([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
-val test71 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9)], (Hearts, Jack), IllegalMove) = [(Spades,Num 9),(Hearts,Num 5)]
-val test72 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9),(Hearts, Jack)], (Hearts, Jack), IllegalMove) =  [(Hearts,Jack),(Spades,Num 9),(Hearts,Num 5)] 
+val test71 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9)], (Hearts, Jack), IllegalMove) = [(Hearts,Num 5),(Spades,Num 9)]
+val test72 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9),(Hearts, Jack)], (Hearts, Jack), IllegalMove) = [(Hearts,Num 5),(Spades,Num 9),(Hearts,Jack)]
 val test73 = ((remove_card ([(Hearts, Ace)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 val test74 = ((remove_card ([(Hearts, Ace), (Diamonds, Queen), (Spades, Num 5)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 

@@ -18,11 +18,6 @@ fun get_substitutions1 ([], _) = []
                       | NONE => [])
   | get_substitutions1(x::xs,str) = get_substitutions1([x],str) @ get_substitutions1(xs,str)
 
-fun fact2 n =
-    let fun aux(n,acc) = if n=0 then acc else aux(n-1,acc*n)
-    in
-        aux(n,1)
-    end
 
 fun get_substitutions2 (list_str_list: string list list, str: string) =
   let
@@ -72,12 +67,12 @@ fun card_value(_,Ace)=11
 fun remove_card(cs: card list, a: card, ex: exn)=
   let
 
-    fun aux(cs: card list, a: card, result: card list, is_not_present: bool)=
-      case (cs,a,result,is_not_present) of
-        ([],_,result,is_not_present) => if is_not_present then [] else result
-        | (c::s,a,result,is_not_present) => if is_not_present andalso c=a then aux(s,a,result,false) else aux(s,a,c::result,is_not_present)
+    fun aux(cs: card list, a: card, result: card list)=
+      case (cs,a,result) of
+        ([],_,result) => result
+        | (c::s,a,result) => if c=a then result @ s else aux(s,a,c::result)
 
-    val result = aux(cs,a,[],true)
+    val result = aux(cs,a,[])
       
   in
     case (cs,result) of
@@ -89,8 +84,7 @@ fun remove_card(cs: card list, a: card, ex: exn)=
 
 fun all_same_color(cs: card list)=
     case (cs) of
-     x::xs::[] => (card_color(x)=card_color(xs))
-    | x::xs::y => if card_color(x)=card_color(xs) then all_same_color(xs::y) else false
+     x::xs::y => card_color(x)=card_color(xs) andalso all_same_color(xs::y) 
     | _ => true
 
 fun sum_cards(cs: card list)=
