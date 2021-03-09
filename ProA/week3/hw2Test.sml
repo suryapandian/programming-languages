@@ -39,6 +39,7 @@ val test71 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9)], (Hea
 val test72 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9),(Hearts, Jack)], (Hearts, Jack), IllegalMove) = [(Hearts,Num 5),(Spades,Num 9),(Hearts,Jack)]
 val test73 = ((remove_card ([(Hearts, Ace)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 val test74 = ((remove_card ([(Hearts, Ace), (Diamonds, Queen), (Spades, Num 5)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
+val test75 = ((remove_card ([(Hearts, Ace)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 
 val test8 = all_same_color [(Hearts, Num 5), (Hearts, Ace)] = true
 val test81 = all_same_color [(Hearts, King), (Spades, Num 3)] = false
@@ -82,5 +83,5 @@ val test16 = officiate ([(Hearts, Num 2),(Clubs, Num 4)],[], 15) = 7
 
 val test17 = officiate ([(Spades, King),(Hearts, Num 2),(Clubs, Num 4)],[Draw,Discard (Spades, King),Draw], 15) = 6
 
-val test18 = officiate ([(Spades, King)],[Draw,Discard (Spades, King)], 15) = 6
+val test18 = officiate ([(Spades, King)],[Draw,Discard (Spades, King)], 15) = 7
              

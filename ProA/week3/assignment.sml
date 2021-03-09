@@ -66,19 +66,13 @@ fun card_value(_,Ace)=11
 
 fun remove_card(cs: card list, a: card, ex: exn)=
   let
-
     fun aux(cs: card list, a: card, result: card list)=
       case (cs,a,result) of
-        ([],_,result) => result
+        ([],_,result) => raise ex
         | (c::s,a,result) => if c=a then result @ s else aux(s,a,c::result)
 
-    val result = aux(cs,a,[])
-      
   in
-    case (cs,result) of
-      (c::[],[])  => if c=a then result else raise ex
-      | (_, []) => raise ex
-      | (cs,x) => if x=cs then raise ex else x
+    aux(cs,a,[])
   end
 
 
