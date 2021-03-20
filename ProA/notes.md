@@ -28,3 +28,10 @@ val ans = pow (2,3)
 val x = (2,3)
 val ans = pow(x)
 ```
+
+
+useful
+
+```
+signature X = List;
+```

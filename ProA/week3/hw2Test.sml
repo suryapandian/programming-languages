@@ -40,6 +40,7 @@ val test72 = remove_card ([(Hearts, Jack),(Hearts, Num 5),(Spades, Num 9),(Heart
 val test73 = ((remove_card ([(Hearts, Ace)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 val test74 = ((remove_card ([(Hearts, Ace), (Diamonds, Queen), (Spades, Num 5)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
 val test75 = ((remove_card ([(Hearts, Ace)], (Hearts, King), IllegalMove);false) handle IllegalMove => true)
+val test76 = remove_card([],(Hearts,King),IllegalMove)
 
 val test8 = all_same_color [(Hearts, Num 5), (Hearts, Ace)] = true
 val test81 = all_same_color [(Hearts, King), (Spades, Num 3)] = false
