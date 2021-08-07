@@ -31,6 +31,7 @@ fun fold f acc xs = (* means fun fold f = fn acc => fn xs => *)
   case xs of
     []     => acc
   | x::xs' => fold f (f(acc,x)) xs'
+
 (* Note: foldl in the ML standard library is very similar, but 
    the two arguments for the function f are in the opposite order. 
    The order is, naturally, a matter of taste.

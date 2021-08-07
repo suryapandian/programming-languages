@@ -7,6 +7,10 @@ fun fold (f,acc,xs) =
 	[] => acc
       | x::xs' => fold (f,f(acc,x),xs')
 
+ val p = TupleP([Variable("x"),Variable("wiw"),Variable("x")]);
+
+List.foldl (fn (p,acc) => acc @ get_strings(p,acc)) acc ps
+
 (* examples not using private data *)
 
 fun f1 xs = fold ((fn (x,y) => x+y), 0, xs) (*sums the list*)
